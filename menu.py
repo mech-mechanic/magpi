@@ -3,8 +3,16 @@ from evdev import InputDevice, categorize, ecodes
 import os
 import time
 
+from Watch import WatchFace
+
 # create jpad object 
-jpad = InputDevice('/dev/input/event0') 
+jpad = InputDevice('/dev/input/event0')
+
+# create watch face object
+face = WatchFace()
+
+# Method test
+face.stats 
 
 # print device info
 print(jpad)
