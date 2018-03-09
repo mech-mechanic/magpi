@@ -49,7 +49,7 @@ x = 0
 
 
 # Load default font.
-font = ImageFont.load_default()
+font = ImageFont.truetype("arial.ttf", 15)
 
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
@@ -73,9 +73,6 @@ while True:
     # Write two lines of text.
 
     draw.text((x, top),       "Time: " + str(IP),  font=font, fill=255)
-    draw.text((x, top+8),     "Date: " + str(CPU), font=font, fill=255)
-    draw.text((x, top+16),    "Favourite: " + str(MemUsage),  font=font, fill=255)
-    draw.text((x, top+25),    "IP: " + str(Disk),  font=font, fill=255)
 
     # Display image.
     disp.image(image)
