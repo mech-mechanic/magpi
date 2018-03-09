@@ -12,7 +12,7 @@ jpad = InputDevice('/dev/input/event0')
 face = WatchFace()
 
 # Method test
-face.stats 
+face.stats()
 
 # print device info
 print(jpad)
@@ -22,7 +22,5 @@ for event in jpad.read_loop():
     if event.type == ecodes.EV_KEY:
         if event.code == 56:
             if categorize(event).keystate == 1:
-                    os.system('python time.py')
-                    os.system('python clear.py')
-
+                face.stats()
 

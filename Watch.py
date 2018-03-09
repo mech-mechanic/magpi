@@ -59,9 +59,9 @@ class WatchFace:
   def stats(self):
     count = 0
 
-    while count > 100:
+    while count < 100:
       # Draw a black filled box to clear the image.
-      draw.rectangle((0,0,width,height), outline=0, fill=0)
+      self.draw.rectangle((0,0,self.width,self.height), outline=0, fill=0)
 
       # Shell scripts for system monitoring from here : https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
       cmd = "hostname -I | cut -d\' \' -f1"
@@ -75,15 +75,17 @@ class WatchFace:
 
       # Write two lines of text.
 
-      draw.text((x, top),       "IP: " + str(IP),  font=font, fill=255)
-      draw.text((x, top+8),     str(CPU), font=font, fill=255)
-      draw.text((x, top+16),    str(MemUsage),  font=font, fill=255)
-      draw.text((x, top+25),    str(Disk),  font=font, fill=255)
+      self.draw.text((self.x, self.top),       "IP: " + str(IP),  font=self.font, fill=255)
+      self.draw.text((self.x, self.top+8),     str(CPU), font=self.font, fill=255)
+      self.draw.text((self.x, self.top+16),    str(MemUsage),  font=self.font, fill=255)
+      self.draw.text((self.x, self.top+25),    "Count: " + str(count),  font=self.font, fill=255)
 
       # Display image.
-      disp.image(image)
-      disp.display()
+      self.disp.image(self.image)
+      self.disp.display()
       time.sleep(.1)
       count = count + 1       
+
+      return True
 
 
